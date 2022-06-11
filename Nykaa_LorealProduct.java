@@ -45,7 +45,6 @@ public class Nykaa_LorealProduct {
 				// System.out.println("The Given("+li.getText()+") product is selected");
 				break;
 			}
-
 			else
 				System.out.println("failed");
 		}
@@ -90,20 +89,6 @@ public class Nykaa_LorealProduct {
 		driver.switchTo().window(windowList.get(1));
 		System.out.println("The title of the page : " + driver.getTitle());
 
-		/*
-		 * List<WebElement> eleSelectSize =
-		 * driver.findElements(By.xpath("//select[@title='SIZE']")); for (WebElement
-		 * sizeOfProduct : eleSelectSize) {
-		 * 
-		 * if (sizeOfProduct.getText().contains("175ml")) {
-		 * System.out.println("The size detail" + sizeOfProduct.getText()); if
-		 * (sizeOfProduct.isSelected() == true) {
-		 * System.out.println("The Requested Size(" + sizeOfProduct.getText() +
-		 * ") is Selected by Default"); break; } else { sizeOfProduct.click();
-		 * System.out.println("The Requested Size(" + sizeOfProduct.getText() +
-		 * ") is Selected by User"); break; } } break; }
-		 */
-
 		WebElement sel = driver.findElement(By.xpath("//select[@title='SIZE']"));
 		Select op = new Select(sel);
 		String defaultOption = op.getFirstSelectedOption().getText();
@@ -114,7 +99,7 @@ public class Nykaa_LorealProduct {
 			op.selectByVisibleText("175ml");
 			System.out.println("selcted by user : " + op.getFirstSelectedOption().getText());
 		}
-
+		
 		// 11) Print the MRP of the product
 		String mrpOfProduct = driver.findElement(By.xpath("(//span[text()='MRP:']//following-sibling::span)[1]"))
 				.getText();
